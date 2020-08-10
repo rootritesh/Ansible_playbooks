@@ -1,0 +1,24 @@
+- hosts: IP_addr
+  vars:
+  - p1: "httpd"
+  - p2: "git"
+  tasks:
+  - package:
+      name: "{{ p1 }}"
+      state: present
+  - package:
+     name: "{{ p2 }}"
+     state: present
+
+  - service:
+      name: "httpd"
+      state: started
+  - git:
+      repo: git_repo
+      clone: yes
+      dest: /var/www/html
+  - service:
+      name: httpd
+      enabled: yes
+  - debug:
+      msg: "{{ p1 }} has been configured"
