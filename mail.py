@@ -7,8 +7,8 @@
       mail:
         host: smtp.gmail.com
         port: 587
-        username: {{ USERNAME }}
-        password: {{ P4SSW0RD }}
+        username: "{{ user }}"
+        password: "{{ pass }}"
         to: xyz@.com
         subject: "This is subject"
         body: "this is body"
